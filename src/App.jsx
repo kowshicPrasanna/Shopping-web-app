@@ -1,9 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import shopImage from "./assets/shop.jpg";
-import footprint from "./assets/footprint.svg";
 
 function App() {
-
   const targetRef = useRef(null);
   const scrollToNextDiv = () => {
     if (targetRef.current) {
@@ -26,11 +24,11 @@ function App() {
 
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addToCart = (product) => {
     const productExists = cart.some((item) => item.id === product.id);
-  
+
     if (productExists) {
       alert(`${product.name} already added to the cart!`);
     } else {
@@ -38,7 +36,7 @@ function App() {
       setTotal(total + parseInt(product.price));
     }
   };
-  
+
   const removeCart = (item, index) => {
     cart.splice(index, 1);
     setCart([...cart]);
@@ -48,7 +46,6 @@ function App() {
   return (
     <>
       <div className="flex flex-col">
-        
         <div
           className="bg-cover bg-center h-screen"
           style={{ backgroundImage: `url(${shopImage})`, opacity: 0.8 }}
@@ -58,14 +55,14 @@ function App() {
               HOOPS{" "}
               <img
                 className="inline w-[3rem] h-[3rem]"
-                src={`url(${footprint})`}// "./src/assets/footprint.svg"
+                src="./src/assets/footprint.svg"
                 alt=""
               />
             </span>
             <span>
               <button
                 className="rounded-full"
-                onClick={() => setIsModalOpen(true)} 
+                onClick={() => setIsModalOpen(true)}
               >
                 <img
                   className="inline w-[4rem] h-[4rem] hover:brightness-0 hover:invert"
@@ -73,7 +70,7 @@ function App() {
                   alt=""
                 />
               </button>
-              <p className="text-white inline">({cart.length})</p> 
+              <p className="text-white inline">({cart.length})</p>
             </span>
           </nav>
           <div className="flex flex-col items-center justify-center">
@@ -129,7 +126,6 @@ function App() {
           </div>
         </div>
 
-        
         {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
             <div className="bg-gray-300 w-[90%] max-w-[600px] p-6 rounded-lg">
@@ -166,7 +162,7 @@ function App() {
               </div>
               <button
                 className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                onClick={() => setIsModalOpen(false)} 
+                onClick={() => setIsModalOpen(false)}
               >
                 Close
               </button>
