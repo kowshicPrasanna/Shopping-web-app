@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import shopImage from "./assets/shop.jpg";
+import footprint from "./assets/footprint.svg";
 
 function App() {
 
@@ -57,7 +58,7 @@ function App() {
               HOOPS{" "}
               <img
                 className="inline w-[3rem] h-[3rem]"
-                src="./src/assets/footprint.svg"
+                src={`url(${footprint})`}// "./src/assets/footprint.svg"
                 alt=""
               />
             </span>
