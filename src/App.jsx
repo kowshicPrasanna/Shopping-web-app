@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import shopImage from "/shop.jpg";
 import foot from "/footprint.svg";
 import bag from "./assets/bag.svg";
+import deleteimg from "./assets/delete.svg";
 import cartimg from "./assets/cart.svg";
 import img1 from "./assets/1.jpg";
 import img2 from "./assets/2.jpg";
@@ -179,7 +180,7 @@ function App() {
                       <button onClick={() => removeCart(item, index)}>
                         <img
                           className="inline w-[1.5rem] h-[2rem] hover:brightness-0 hover:invert"
-                          src="./src/assets/delete.svg"
+                          src={deleteimg}
                           alt=""
                         />
                       </button>
