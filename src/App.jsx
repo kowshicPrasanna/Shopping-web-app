@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import shopImage from "/shop.jpg";
 import foot from "/footprint.svg";
+import bag from "./assets/bag.svg";
+import cartimg from "./assets/cart.svg";
+
 
 function App() {
   const targetRef = useRef(null);
@@ -67,7 +70,7 @@ function App() {
               >
                 <img
                   className="inline w-[4rem] h-[4rem] hover:brightness-0 hover:invert"
-                  src="./src/assets/bag.svg"
+                  src={bag}//"./src/assets/bag.svg"
                   alt=""
                 />
               </button>
@@ -107,6 +110,7 @@ function App() {
                 <img
                   className="w-[15rem] h-[15rem] object-fit "
                   src={product.image}
+                  // src={`${prodimg}${product.image}`}// src={product.image}
                   alt=""
                 />
                 <span>
@@ -117,7 +121,7 @@ function App() {
                   <button onClick={() => addToCart(product)}>
                     <img
                       className="w-[1.5rem] h-[2rem]"
-                      src="src/assets/cart.svg"
+                      src={cartimg}//"src/assets/cart.svg"
                       alt=""
                     />
                   </button>
