@@ -55,7 +55,7 @@ function App() {
               HOOPS{" "}
               <img
                 className="inline w-[3rem] h-[3rem]"
-                src="./src/assets/footprint.svg"
+                src="./src/assets/footprint.SVG"
                 alt=""
               />
             </span>
