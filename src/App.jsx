@@ -3,9 +3,39 @@ import shopImage from "/shop.jpg";
 import foot from "/footprint.svg";
 import bag from "./assets/bag.svg";
 import cartimg from "./assets/cart.svg";
-
+import img1 from "./assets/1.jpg";
+import img2 from "./assets/2.jpg";
+import img3 from "./assets/3.jpg";
+import img4 from "./assets/4.jpg";
+import img5 from "./assets/5.jpg";
+import img6 from "./assets/6.jpg";
+import img7 from "./assets/7.jpg";
+import img8 from "./assets/8.jpg";
+import img9 from "./assets/9.jpg";
+import img10 from "./assets/10.jpg";
+import img11 from "./assets/11.jpg";
+import img12 from "./assets/12.jpg";
+import img13 from "./assets/13.jpg";
+import img14 from "./assets/14.jpg";
 
 function App() {
+  const imageMap = {
+    1: img1,
+    2: img2,
+    3: img3,
+    4: img4,
+    5: img5,
+    6: img6,
+    7: img7,
+    8: img8,
+    9: img9,
+    10: img10,
+    11: img11,
+    12: img12,
+    13: img13,
+    14: img14,
+  };
+
   const targetRef = useRef(null);
   const scrollToNextDiv = () => {
     if (targetRef.current) {
@@ -54,23 +84,19 @@ function App() {
           className="bg-cover bg-center h-screen"
           style={{ backgroundImage: `url(${shopImage})`, opacity: 0.8 }}
         >
-          <nav className="w-[90%] mx-auto my-[3rem] flex justify-between">
+          <nav className="w-[90%] mx-auto my-[3rem] flex justify-between ">
             <span className="text-white font-bold font-serif text-[3rem]">
               HOOPS{" "}
-              <img
-                className="inline w-[3rem] h-[3rem]"
-                src={foot}//"public/footprint.svg"
-                alt=""
-              />
+              <img className="inline w-[3rem] h-[3rem]" src={foot} alt="" />
             </span>
-            <span>
+            <span class="fixed top-[1rem] right-[2rem] z-20">
               <button
                 className="rounded-full"
                 onClick={() => setIsModalOpen(true)}
               >
                 <img
                   className="inline w-[4rem] h-[4rem] hover:brightness-0 hover:invert"
-                  src={bag}//"./src/assets/bag.svg"
+                  src={bag}
                   alt=""
                 />
               </button>
@@ -102,32 +128,34 @@ function App() {
             Trending Collection
           </h1>
           <div className="w-[90%] mx-auto flex justify-even flex-wrap gap-[2rem]">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="my-[2rem] bg-slate-50 rounded-lg overflow-hidden"
-              >
-                <img
-                  className="w-[15rem] h-[15rem] object-fit "
-                  src={product.image}
-                  // src={`${prodimg}${product.image}`}// src={product.image}
-                  alt=""
-                />
-                <span>
-                  <p className="my-[1rem] px-[0.5rem]">{product.name}</p>
-                </span>
-                <span className="flex items-center justify-between mb-[1rem] px-[0.5rem]">
-                  <p className=" text-gray-400">Rs. {product.price}</p>
-                  <button onClick={() => addToCart(product)}>
-                    <img
-                      className="w-[1.5rem] h-[2rem]"
-                      src={cartimg}//"src/assets/cart.svg"
-                      alt=""
-                    />
-                  </button>
-                </span>
-              </div>
-            ))}
+            {products.map((product, index) => {
+              let photo = imageMap[product.id];
+              return (
+                <div
+                  key={index}
+                  className="my-[2rem] bg-slate-50 rounded-lg overflow-hidden"
+                >
+                  <img
+                    className="w-[15rem] h-[15rem] object-fit"
+                    src={photo}
+                    alt={product.name}
+                  />
+                  <span>
+                    <p className="my-[1rem] px-[0.5rem]">{product.name}</p>
+                  </span>
+                  <span className="flex items-center justify-between mb-[1rem] px-[0.5rem]">
+                    <p className=" text-gray-400">Rs. {product.price}</p>
+                    <button onClick={() => addToCart(product)}>
+                      <img
+                        className="w-[1.5rem] h-[2rem]"
+                        src={cartimg}
+                        alt="Cart"
+                      />
+                    </button>
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
